@@ -1,11 +1,15 @@
-k = int(input())
-for i in range(k):
-    data=list(map(int,input().split()))
-    data1=data[1:]
-    data1.sort(reverse=True)
-    max_gap=0
-    for j in range(len(data1)-1):
-        if abs(data1[j+1]-data1[j])>max_gap:
-            max_gap=abs(data1[j+1]-data1[j])
-    print("Class",i+1)
-    print("Max %d, Min %d, Largest gap %d" %(data1[0],data1[-1],max_gap))
+classNumber=int(input()) #반 개수
+
+for i in range(classNumber):
+  scoreInfo=list(map(int,input().split()))
+  del scoreInfo[0]
+  scoreInfo.sort()
+  largestGap=0
+  for j in range(0,len(scoreInfo)-1):
+    if scoreInfo[j+1] - scoreInfo[j] > largestGap:
+      largestGap=scoreInfo[j+1] - scoreInfo[j]
+  maxValue=max(scoreInfo) #최대값
+  minValue=min(scoreInfo) #최소값
+
+  print('Class',i+1)
+  print("Max %d, Min %d, Largest gap %d" %(maxValue,minValue,largestGap))
